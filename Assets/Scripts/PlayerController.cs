@@ -4,13 +4,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.AI;
 using UnityEngine.InputSystem.HID;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
     const string IDLE = "Idle";
     const string WALK = "Walk";
-    CustomActions input;
-    NavMeshAgent agent;
+    public float speed = 5f;
+    private Vector3 moveInput;
+    private Rigidbody rb;
+    PlayerControls controls;
+    //NavMeshAgent agent;
     Animator animator;
 
     [SerializeField] ParticleSystem clickEffect;
@@ -18,54 +22,40 @@ public class PlayerController : MonoBehaviour
 
     float lookRotationSpeed = 8f;
 
+    public Inventory inventory;
+
     void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
+        //agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        input = new CustomActions();
-        AssignInputs();
-    }
-
-    void AssignInputs()
-    {
-        input.Main.Move.performed += ctx => ClickToMove();
-
-    }
-    void ClickToMove()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),out hit, 100, clickableLayers))
-        {
-            agent.destination = hit.point;
-            clickEffect.transform.position = hit.point + new Vector3(0, 0.1f, 0);
-            clickEffect.Play();
-            
-        }
+        rb = GetComponent<Rigidbody>();
+        controls = new PlayerControls();
     }
 
     void OnEnable()
     {
-        input.Enable();
+        controls.Enable();
+        controls.Player.Move.performed += OnMove;
+        controls.Player.Move.canceled += OnMove;
     }
     void OnDisable()
     {
-        input.Disable();
+        controls.Disable();
+        controls.Player.Move.performed -= OnMove;
+        controls.Player.Move.canceled -= OnMove;
     }
 
-    void Update()
+    private void OnMove(InputAction.CallbackContext context)
     {
-        FaceTarget();
-        SetAnimation();
+        moveInput = context.ReadValue<Vector3>();
     }
-
-    void FaceTarget()
+    private void FixedUpdate()
     {
-        Vector3 direction = (agent.destination - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * lookRotationSpeed);
-
+        Vector3 movement = moveInput * speed * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + movement);
+        //SetAnimation();
     }
-    void SetAnimation()
+    /*void SetAnimation()
     {
         if (agent.velocity == Vector3.zero)
         {
@@ -76,4 +66,17 @@ public class PlayerController : MonoBehaviour
             animator.Play(WALK);
         }
     }
+    */
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Item")
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                inventory.content.Add(collision.gameObject.GetComponent<Item>().item);
+                Destroy(collision.transform.gameObject);
+            }
+        }
+    }
+    
 }

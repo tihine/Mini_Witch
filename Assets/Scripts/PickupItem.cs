@@ -8,7 +8,7 @@ public class PickupItem : MonoBehaviour
     [SerializeField]
     private float pickupRange = 2.6f;
 
-    public Inventory inventory;
+    //public Inventory inventory;
     void Update()
     {
         RaycastHit hit;
@@ -18,7 +18,7 @@ public class PickupItem : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    inventory.content.Add(hit.transform.gameObject.GetComponent<Item>().item);
+                    //inventory.content.Add(hit.transform.gameObject.GetComponent<Item>().item);
                     Destroy(hit.transform.gameObject);
                 }
             }
