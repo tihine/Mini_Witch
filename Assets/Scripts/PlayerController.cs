@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f;
     private Vector3 moveInput;
     private Rigidbody rb;
+    private GameObject collectibleItem;
     PlayerControls controls;
     //NavMeshAgent agent;
     Animator animator;
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
         controls.Enable();
         controls.Player.Move.performed += OnMove;
         controls.Player.Move.canceled += OnMove;
+        controls.Player.CollectItem.performed += ctx => CollectItem();
     }
     void OnDisable()
     {
@@ -48,6 +50,15 @@ public class PlayerController : MonoBehaviour
     private void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector3>();
+    }
+    private void CollectItem()
+    {
+        if (collectibleItem != null)
+        {
+            Debug.Log("item" + collectibleItem.name);
+            inventory.content.Add(collectibleItem.GetComponent<Item>().item);
+            Destroy(collectibleItem);
+        }
     }
     private void FixedUpdate()
     {
@@ -67,16 +78,24 @@ public class PlayerController : MonoBehaviour
         }
     }
     */
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Item")
+        if (other.CompareTag("Item"))
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            collectibleItem = other.gameObject;
+            Debug.Log("dans la zone");
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Item"))
+        {
+            if (collectibleItem == other.gameObject)
             {
-                inventory.content.Add(collision.gameObject.GetComponent<Item>().item);
-                Destroy(collision.transform.gameObject);
+                collectibleItem = null;
+                Debug.Log("hors zone");
             }
         }
     }
-    
+
 }
