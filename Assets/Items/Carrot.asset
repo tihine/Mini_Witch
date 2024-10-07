@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Carrot
   m_EditorClassIdentifier: 
   name: Carrot
-  visual: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  prefab: {fileID: 919132149155446097, guid: 97a86e94288c5504fa1d154cce5b314f, type: 3}
+  visual: {fileID: 21300000, guid: 81a1f3ed6ffbf524a918bb5f30555296, type: 3}
+  prefab: {fileID: 455818305832585392, guid: babdb5c87cfa03a4f880de90dc77d097, type: 3}

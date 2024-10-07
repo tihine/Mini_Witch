@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     const string IDLE = "Idle";
     const string WALK = "Walk";
     public float speed = 5f;
+    float lookRotationSpeed = 8f;
     private Vector3 moveInput;
     private Rigidbody rb;
     private GameObject collectibleItem;
@@ -20,10 +21,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] ParticleSystem clickEffect;
     [SerializeField] LayerMask clickableLayers;
-
-    float lookRotationSpeed = 8f;
-
-    public Inventory inventory;
+    [SerializeField] public Inventory inventory;
+    [SerializeField] private GameObject pickupText;
 
     void Awake()
     {
@@ -53,10 +52,15 @@ public class PlayerController : MonoBehaviour
     }
     private void CollectItem()
     {
+        if (inventory.IsFull())
+        {
+            Debug.Log("Inventory is full");
+            return;
+        }
         if (collectibleItem != null)
         {
             Debug.Log("item" + collectibleItem.name);
-            inventory.content.Add(collectibleItem.GetComponent<Item>().item);
+            inventory.AddItem(collectibleItem.GetComponent<Item>().item);
             Destroy(collectibleItem);
         }
     }
@@ -80,9 +84,11 @@ public class PlayerController : MonoBehaviour
     */
     private void OnTriggerEnter(Collider other)
     {
+        //look at use of Layer masks ?
         if (other.CompareTag("Item"))
         {
             collectibleItem = other.gameObject;
+            pickupText.SetActive(true);
             Debug.Log("dans la zone");
         }
     }
@@ -93,6 +99,7 @@ public class PlayerController : MonoBehaviour
             if (collectibleItem == other.gameObject)
             {
                 collectibleItem = null;
+                pickupText.SetActive(false);
                 Debug.Log("hors zone");
             }
         }
