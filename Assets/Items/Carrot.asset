@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Carrot
   m_EditorClassIdentifier: 
   name: Carrot
+  description: This is a carrot.
   visual: {fileID: 21300000, guid: 81a1f3ed6ffbf524a918bb5f30555296, type: 3}
   prefab: {fileID: 455818305832585392, guid: babdb5c87cfa03a4f880de90dc77d097, type: 3}

@@ -8,6 +8,7 @@ using UnityEngine;
 public class ItemData : ScriptableObject
 {
     public string name;
+    public string description;
     public Sprite visual;
     public GameObject prefab;
 }
