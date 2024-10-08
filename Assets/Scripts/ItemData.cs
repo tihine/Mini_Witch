@@ -11,4 +11,13 @@ public class ItemData : ScriptableObject
     public string description;
     public Sprite visual;
     public GameObject prefab;
+    public ItemType itemType;
+}
+
+public enum ItemType
+{
+    Ressource,
+    Equipment,
+    Potion,
+    Consumable
 }

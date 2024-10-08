@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("item" + collectibleItem.name);
             inventory.AddItem(collectibleItem.GetComponent<Item>().item);
+            pickupText.SetActive(false);
             Destroy(collectibleItem);
         }
     }
