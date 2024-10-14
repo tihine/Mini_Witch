@@ -586,6 +586,10 @@ PrefabInstance:
       propertyPath: content
       value: test1
       objectReference: {fileID: 0}
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -688,6 +692,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -790,6 +798,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -953,6 +965,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1428,6 +1444,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1587,6 +1607,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1689,6 +1713,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1885,6 +1913,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1987,6 +2019,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2091,6 +2127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 860411787}
   - component: {fileID: 860411788}
+  - component: {fileID: 860411789}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -2125,18 +2162,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6600ed88589cbf441a4fefc3f5f81dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemActionsSystem: {fileID: 860411789}
   content:
   - {fileID: 11400000, guid: 2bf7ff3529d888a4997b26ace463497f, type: 2}
   - {fileID: 11400000, guid: 1ad54bc53161fe641a8d603b88903346, type: 2}
   inventoryPanel: {fileID: 2133253364}
   inventorySlotsParent: {fileID: 152394778}
   emptySlotVisual: {fileID: 21300000, guid: 25d0ac2a41f0cd541869ac8148bf3e3f, type: 3}
-  dropPoint: {fileID: 131862458}
+--- !u!114 &860411789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860411785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35bf7e0346c911c429a941e6128d2258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   actionPanel: {fileID: 1275030550}
+  dropPoint: {fileID: 131862458}
   useItemButton: {fileID: 1003134934}
   equipItemButton: {fileID: 1547480003}
   dropItemButton: {fileID: 869965797}
   destroyItemButton: {fileID: 1280097217}
+  itemCurrentlySelected: {fileID: 0}
 --- !u!1 &869965797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2220,8 +2271,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 860411788}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 860411789}
+        m_TargetAssemblyTypeName: ItemActionsSystem, Assembly-CSharp
         m_MethodName: DropActionButton
         m_Mode: 1
         m_Arguments:
@@ -2540,8 +2591,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 860411788}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 860411789}
+        m_TargetAssemblyTypeName: ItemActionsSystem, Assembly-CSharp
         m_MethodName: UseActionButton
         m_Mode: 1
         m_Arguments:
@@ -2598,6 +2649,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2700,6 +2755,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2954,8 +3013,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 860411788}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 860411789}
+        m_TargetAssemblyTypeName: ItemActionsSystem, Assembly-CSharp
         m_MethodName: DestroyActionButton
         m_Mode: 1
         m_Arguments:
@@ -3012,6 +3071,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3119,6 +3182,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8227,8 +8294,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 860411788}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 860411789}
+        m_TargetAssemblyTypeName: ItemActionsSystem, Assembly-CSharp
         m_MethodName: EquipActionButton
         m_Mode: 1
         m_Arguments:
@@ -8553,6 +8620,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8655,6 +8726,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8915,6 +8990,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9017,6 +9096,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9119,6 +9202,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9700,6 +9787,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10306,6 +10397,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152394778}
     m_Modifications:
+    - target: {fileID: 1149630150124566502, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 860411789}
     - target: {fileID: 3416654546517287723, guid: 0ffc9de71d886d94493f3553df1499ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

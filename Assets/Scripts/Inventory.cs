@@ -1,25 +1,17 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    [Header("OTHER SCRIPTS REFERENCES")]
+    [SerializeField] private ItemActionsSystem itemActionsSystem;
+
+    [Header("INVENTORY SYSTEM VARIABLES")]
     public List<ItemData> content = new List<ItemData>();
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private Transform inventorySlotsParent;
     const int InventorySize = 20;
     [SerializeField] private Sprite emptySlotVisual;
-    [SerializeField] private Transform dropPoint;
-
-    [Header("Action Panel References")]
-    [SerializeField] private GameObject actionPanel;
-    [SerializeField] private GameObject useItemButton;
-    [SerializeField] private GameObject equipItemButton;
-    [SerializeField] private GameObject dropItemButton;
-    [SerializeField] private GameObject destroyItemButton;
-
-    private ItemData itemCurrentlySelected;
 
     public static Inventory instance;
     private bool inventoryIsOpen=false;
@@ -52,6 +44,11 @@ public class Inventory : MonoBehaviour
         content.Add(item);
         RefreshContent();
     }
+    public void RemoveItem(ItemData item)
+    {
+        content.Remove(item);
+        RefreshContent();
+    }
     private void OpenInventory()
     {
         inventoryPanel.SetActive(true);
@@ -60,11 +57,11 @@ public class Inventory : MonoBehaviour
     public void CloseInventory()
     {
         inventoryPanel.SetActive(false);
-        actionPanel.SetActive(false);
+        itemActionsSystem.actionPanel.SetActive(false);
         TooltipSystem.instance.Hide();
         inventoryIsOpen = false;
     }
-    private void RefreshContent()
+    public void RefreshContent()
     {
         //Delete all visuals
         for (int i = 0; i < inventorySlotsParent.childCount; i++)
@@ -84,69 +81,5 @@ public class Inventory : MonoBehaviour
     public bool IsFull()
     {
         return InventorySize == content.Count;
-    }
-
-    public void OpenActionPanel(ItemData item, Vector3 slotPosition)
-    {
-        itemCurrentlySelected = item; //needed for ActionButtons
-        if (item == null)
-        {
-            actionPanel.SetActive(false);
-            return;
-        }
-
-        switch(item.itemType)
-        {
-            case ItemType.Ressource:
-                useItemButton.SetActive(false);
-                equipItemButton.SetActive(false);
-                break;
-            case ItemType.Equipment: 
-                useItemButton.SetActive(false);
-                equipItemButton.SetActive(true);
-                break;
-            case ItemType.Consumable:
-                useItemButton.SetActive(true);
-                equipItemButton.SetActive(false);
-                break;
-            case ItemType.Potion:
-                useItemButton.SetActive(true);
-                equipItemButton.SetActive(false);
-                break;
-        }
-        actionPanel.transform.position = slotPosition;
-        actionPanel.SetActive(true);
-    }
-
-    public void CloseActionPanel()
-    {
-        actionPanel.SetActive(false);
-        itemCurrentlySelected = null;
-    }
-
-    public void UseActionButton()
-    {
-        print("Use item on" + itemCurrentlySelected);
-        CloseActionPanel();
-        
-    }
-    public void EquipActionButton()
-    {
-        print("Equip item on" + itemCurrentlySelected);
-        CloseActionPanel();
-    }
-    public void DropActionButton()
-    {
-        GameObject instantiatedItem = Instantiate(itemCurrentlySelected.prefab);
-        instantiatedItem.transform.position = dropPoint.position;
-        content.Remove(itemCurrentlySelected);
-        RefreshContent();
-        CloseActionPanel();
-    }
-    public void DestroyActionButton()
-    {
-        content.Remove(itemCurrentlySelected);
-        RefreshContent();
-        CloseActionPanel();
     }
 }
