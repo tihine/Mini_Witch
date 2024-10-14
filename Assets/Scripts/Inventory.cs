@@ -22,6 +22,8 @@ public class Inventory : MonoBehaviour
     private ItemData itemCurrentlySelected;
 
     public static Inventory instance;
+    private bool inventoryIsOpen=false;
+
     private void Awake()
     {
         instance = this; 
@@ -30,17 +32,37 @@ public class Inventory : MonoBehaviour
     {
         RefreshContent();
     }
+    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if(inventoryIsOpen)
+            {
+                CloseInventory();
+            }
+            else
+            {
+                OpenInventory();
+            }
+        }
+    }
     public void AddItem(ItemData item)
     {
         content.Add(item);
         RefreshContent();
     }
-    private void Update()
+    private void OpenInventory()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            inventoryPanel.SetActive(!inventoryPanel.activeSelf);
-        }
+        inventoryPanel.SetActive(true);
+        inventoryIsOpen= true;
+    }
+    public void CloseInventory()
+    {
+        inventoryPanel.SetActive(false);
+        actionPanel.SetActive(false);
+        TooltipSystem.instance.Hide();
+        inventoryIsOpen = false;
     }
     private void RefreshContent()
     {
