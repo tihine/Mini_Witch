@@ -14,15 +14,13 @@ public class PlayerController : MonoBehaviour
     float lookRotationSpeed = 8f;
     private Vector3 moveInput;
     private Rigidbody rb;
-    private GameObject collectibleItem;
     PlayerControls controls;
     //NavMeshAgent agent;
     Animator animator;
+    public InteractBehaviour interactBehaviour;
 
     [SerializeField] ParticleSystem clickEffect;
     [SerializeField] LayerMask clickableLayers;
-    [SerializeField] public Inventory inventory;
-    [SerializeField] private GameObject pickupText;
 
     void Awake()
     {
@@ -37,7 +35,9 @@ public class PlayerController : MonoBehaviour
         controls.Enable();
         controls.Player.Move.performed += OnMove;
         controls.Player.Move.canceled += OnMove;
-        controls.Player.CollectItem.performed += ctx => CollectItem();
+        controls.Player.CollectItem.performed += OnCollectItem;
+        controls.Player.Harvest.performed += OnHarvest;
+
     }
     void OnDisable()
     {
@@ -50,21 +50,15 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector3>();
     }
-    private void CollectItem()
+    private void OnCollectItem(InputAction.CallbackContext context)
     {
-        if (inventory.IsFull())
-        {
-            Debug.Log("Inventory is full");
-            return;
-        }
-        if (collectibleItem != null)
-        {
-            Debug.Log("item" + collectibleItem.name);
-            inventory.AddItem(collectibleItem.GetComponent<Item>().item);
-            pickupText.SetActive(false);
-            Destroy(collectibleItem);
-        }
+        interactBehaviour.CollectItem();
     }
+    private void OnHarvest(InputAction.CallbackContext context)
+    {
+        interactBehaviour.Harvest();
+    }
+
     private void FixedUpdate()
     {
         Vector3 movement = moveInput * speed * Time.fixedDeltaTime;
@@ -83,27 +77,6 @@ public class PlayerController : MonoBehaviour
         }
     }
     */
-    private void OnTriggerEnter(Collider other)
-    {
-        //look at use of Layer masks ?
-        if (other.CompareTag("Item"))
-        {
-            collectibleItem = other.gameObject;
-            pickupText.SetActive(true);
-            Debug.Log("dans la zone");
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Item"))
-        {
-            if (collectibleItem == other.gameObject)
-            {
-                collectibleItem = null;
-                pickupText.SetActive(false);
-                Debug.Log("hors zone");
-            }
-        }
-    }
+    
 
 }
