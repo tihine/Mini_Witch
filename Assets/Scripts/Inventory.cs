@@ -49,6 +49,10 @@ public class Inventory : MonoBehaviour
         content.Remove(item);
         RefreshContent();
     }
+    public List<ItemData> GetContent()
+    {
+        return content;
+    }
     private void OpenInventory()
     {
         inventoryPanel.SetActive(true);
